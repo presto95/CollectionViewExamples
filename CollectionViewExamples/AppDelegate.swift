@@ -15,7 +15,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     window = .init()
-    window?.rootViewController = OrthogonalScrollBehaviorCompositionalLayoutViewController()
+    window?.rootViewController = MainViewController()
     window?.makeKeyAndVisible()
     return true
   }
