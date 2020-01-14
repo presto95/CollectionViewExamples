@@ -11,15 +11,16 @@ import UIKit
 final class CustomFlowLayout: UICollectionViewFlowLayout {
   private var insertingIndexPaths: [IndexPath] = []
   private var deletingIndexPaths: [IndexPath] = []
+  private var length: CGFloat = .zero
 
   override func prepare() {
     super.prepare()
     guard let collectionView = collectionView else { return }
     if collectionView.bounds.size.width < 600 {
-      let length = collectionView.bounds.width / 5
+      length = collectionView.bounds.width / 5
       itemSize = .init(width: length, height: length)
     } else {
-      let length = collectionView.bounds.width / 8
+      length = collectionView.bounds.width / 8
       itemSize = .init(width: length, height: length)
     }
     minimumLineSpacing = .zero
@@ -79,5 +80,10 @@ final class CustomFlowLayout: UICollectionViewFlowLayout {
     super.finalizeCollectionViewUpdates()
     deletingIndexPaths.removeAll()
     insertingIndexPaths.removeAll()
+  }
+
+  override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+    let quotient = CGFloat(Int(proposedContentOffset.y / length))
+    return .init(x: 0, y: quotient * length)
   }
 }
