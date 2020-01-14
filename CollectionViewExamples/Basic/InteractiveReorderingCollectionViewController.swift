@@ -9,27 +9,34 @@
 import UIKit
 
 final class InteractiveReorderingCollectionViewController: UIViewController {
-  var collectionView: UICollectionView!
-  var items = Array(0 ..< 100)
+  private var collectionView: UICollectionView!
+  private var items = Array(0 ..< 100)
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    let layout = UICollectionViewFlowLayout()
-    layout.itemSize = .init(width: view.bounds.width / 5, height: view.bounds.width / 5)
-    layout.minimumLineSpacing = .zero
-    layout.minimumInteritemSpacing = .zero
-    collectionView = .init(frame: view.bounds, collectionViewLayout: layout)
+    collectionView = .init(frame: view.bounds, collectionViewLayout: makeLayout())
     collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     collectionView.register(Cell.self, forCellWithReuseIdentifier: "cell")
     collectionView.dataSource = self
     view.addSubview(collectionView)
 
-    let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self,
-                                                                  action: #selector(longPressGestureRecognizerDidRecognize(_:)))
+    installLongPressGesture()
+  }
+
+  private func makeLayout() -> UICollectionViewLayout {
+    let layout = UICollectionViewFlowLayout()
+    layout.itemSize = .init(width: view.bounds.width / 5, height: view.bounds.width / 5)
+    layout.minimumLineSpacing = .zero
+    layout.minimumInteritemSpacing = .zero
+    return layout
+  }
+
+  private func installLongPressGesture() {
+    let longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognizerDidRecognize(_:)))
     collectionView.addGestureRecognizer(longPressGestureRecognizer)
   }
 
-  @objc func longPressGestureRecognizerDidRecognize(_ recognizer: UILongPressGestureRecognizer) {
+  @objc private func longPressGestureRecognizerDidRecognize(_ recognizer: UILongPressGestureRecognizer) {
     let recognizedItemindexPath = collectionView.indexPathForItem(at: recognizer.location(in: collectionView))!
     switch recognizer.state {
     case .began:

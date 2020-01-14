@@ -9,10 +9,6 @@
 import UIKit
 
 final class Cell: UICollectionViewCell {
-  override var reuseIdentifier: String? {
-    return "cell"
-  }
-
   let label = UILabel()
 
   override init(frame: CGRect) {

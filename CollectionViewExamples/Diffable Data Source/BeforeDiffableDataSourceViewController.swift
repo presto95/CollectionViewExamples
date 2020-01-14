@@ -9,9 +9,9 @@
 import UIKit
 
 final class BeforeDiffableDataSourceViewController: UIViewController {
-  var collectionView: UICollectionView!
-  var items = Array(0 ..< 100)
-  var timer: Timer!
+  private var collectionView: UICollectionView!
+  private var items = Array(0 ..< 100)
+  private var timer: Timer!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,6 +23,10 @@ final class BeforeDiffableDataSourceViewController: UIViewController {
     view.addSubview(collectionView)
 
     timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
+      guard !self.items.isEmpty else {
+        self.dismiss(animated: true, completion: nil)
+        return
+      }
       self.collectionView.performBatchUpdates({
         self.items.removeSubrange(0 ..< 5)
         self.collectionView.deleteItems(at: Array(0 ..< 5).map { IndexPath(item: $0, section: 0)})

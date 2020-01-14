@@ -13,10 +13,9 @@ final class AfterDiffableDataSourceViewController: UIViewController {
     case main
   }
 
-  var collectionView: UICollectionView!
-  var items = Array(0 ..< 100)
-  var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
-  var timer: Timer!
+  private var collectionView: UICollectionView!
+  private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
+  private var timer: Timer!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -33,11 +32,15 @@ final class AfterDiffableDataSourceViewController: UIViewController {
 
     var snapshot = NSDiffableDataSourceSnapshot<Section, Int>()
     snapshot.appendSections([.main])
-    snapshot.appendItems(items)
+    snapshot.appendItems(Array(0 ..< 100))
     dataSource.apply(snapshot)
 
     timer = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { _ in
       var currentSnapshot = self.dataSource.snapshot()
+      guard currentSnapshot.numberOfItems != 0 else {
+        self.dismiss(animated: true, completion: nil)
+        return
+      }
       let deletingItems = Array(currentSnapshot.itemIdentifiers[0 ..< 5])
       currentSnapshot.deleteItems(deletingItems)
       self.dataSource.apply(currentSnapshot)

@@ -11,7 +11,8 @@ import UIKit
 final class MainViewController: UIViewController {
   var viewControllers: [[UIViewController.Type]] = [
     [
-      InteractiveReorderingCollectionViewController.self
+      TableLikeCollectionViewController.self,
+      InteractiveReorderingCollectionViewController.self,
     ],
     [
       CustomFlowLayoutViewController.self,

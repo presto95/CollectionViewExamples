@@ -13,9 +13,9 @@ final class SimpleCompositionalLayoutViewController: UIViewController {
     case main
   }
 
-  var collectionView: UICollectionView!
-  var items = Array(0 ..< 100)
-  var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
+  private var collectionView: UICollectionView!
+  private var items = Array(0 ..< 100)
+  private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -36,7 +36,7 @@ final class SimpleCompositionalLayoutViewController: UIViewController {
     dataSource.apply(snapshot)
   }
 
-  func makeLayout() -> UICollectionViewLayout {
+  private func makeLayout() -> UICollectionViewLayout {
     let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2), heightDimension: .fractionalHeight(1))
     let item = NSCollectionLayoutItem(layoutSize: itemSize)
     let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalWidth(0.2))

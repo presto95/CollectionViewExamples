@@ -35,8 +35,8 @@ final class OrthogonalScrollBehaviorCompositionalLayoutViewController: UIViewCon
     }
   }
 
-  var collectionView: UICollectionView!
-  var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
+  private var collectionView: UICollectionView!
+  private var dataSource: UICollectionViewDiffableDataSource<Section, Int>!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -62,7 +62,7 @@ final class OrthogonalScrollBehaviorCompositionalLayoutViewController: UIViewCon
     dataSource.apply(snapshot)
   }
 
-  func makeLayout() -> UICollectionViewLayout {
+  private func makeLayout() -> UICollectionViewLayout {
     let config = UICollectionViewCompositionalLayoutConfiguration()
     config.interSectionSpacing = 20
     let layout = UICollectionViewCompositionalLayout(sectionProvider: { sectionIndex, _ in

@@ -14,8 +14,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    let rootViewController = MainViewController()
+    rootViewController.navigationItem.title = "CV Examples"
+    let navigationController = UINavigationController(rootViewController: rootViewController)
+    navigationController.navigationBar.prefersLargeTitles = true
     window = .init()
-    window?.rootViewController = MainViewController()
+    window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
     return true
   }

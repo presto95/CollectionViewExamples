@@ -21,6 +21,8 @@
 		195600BA23CB61AD0071A718 /* OrthogonalScrollBehaviorCompositionalLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195600B923CB61AD0071A718 /* OrthogonalScrollBehaviorCompositionalLayoutViewController.swift */; };
 		195600BF23CC8DEF0071A718 /* InteractiveReorderingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195600BE23CC8DEF0071A718 /* InteractiveReorderingCollectionViewController.swift */; };
 		195600C123CC971C0071A718 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195600C023CC971C0071A718 /* MainViewController.swift */; };
+		195600C323CD75AB0071A718 /* TableLikeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195600C223CD75AB0071A718 /* TableLikeCollectionViewController.swift */; };
+		195600C523CD75DD0071A718 /* TableLikeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195600C423CD75DD0071A718 /* TableLikeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		195600B923CB61AD0071A718 /* OrthogonalScrollBehaviorCompositionalLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrthogonalScrollBehaviorCompositionalLayoutViewController.swift; sourceTree = "<group>"; };
 		195600BE23CC8DEF0071A718 /* InteractiveReorderingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveReorderingCollectionViewController.swift; sourceTree = "<group>"; };
 		195600C023CC971C0071A718 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		195600C223CD75AB0071A718 /* TableLikeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLikeCollectionViewController.swift; sourceTree = "<group>"; };
+		195600C423CD75DD0071A718 /* TableLikeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableLikeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +76,7 @@
 		1956009023CB07D20071A718 /* CollectionViewExamples */ = {
 			isa = PBXGroup;
 			children = (
-				195600B823CB1ACD0071A718 /* Common */,
+				195600B823CB1ACD0071A718 /* Misc. */,
 				195600AD23CB182C0071A718 /* Basic */,
 				195600BD23CC8DD40071A718 /* Basic Layout */,
 				195600A523CB08250071A718 /* Diffable Data Source */,
@@ -107,17 +111,19 @@
 		195600AD23CB182C0071A718 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
+				195600C223CD75AB0071A718 /* TableLikeCollectionViewController.swift */,
 				195600BE23CC8DEF0071A718 /* InteractiveReorderingCollectionViewController.swift */,
 			);
 			path = Basic;
 			sourceTree = "<group>";
 		};
-		195600B823CB1ACD0071A718 /* Common */ = {
+		195600B823CB1ACD0071A718 /* Misc. */ = {
 			isa = PBXGroup;
 			children = (
 				195600AA23CB08C40071A718 /* Cell.swift */,
+				195600C423CD75DD0071A718 /* TableLikeCell.swift */,
 			);
-			path = Common;
+			path = Misc.;
 			sourceTree = "<group>";
 		};
 		195600BD23CC8DD40071A718 /* Basic Layout */ = {
@@ -206,7 +212,9 @@
 				195600BA23CB61AD0071A718 /* OrthogonalScrollBehaviorCompositionalLayoutViewController.swift in Sources */,
 				195600C123CC971C0071A718 /* MainViewController.swift in Sources */,
 				195600A723CB083E0071A718 /* BeforeDiffableDataSourceViewController.swift in Sources */,
+				195600C323CD75AB0071A718 /* TableLikeCollectionViewController.swift in Sources */,
 				195600BF23CC8DEF0071A718 /* InteractiveReorderingCollectionViewController.swift in Sources */,
+				195600C523CD75DD0071A718 /* TableLikeCell.swift in Sources */,
 				195600B723CB19650071A718 /* SimpleCompositionalLayoutViewController.swift in Sources */,
 				1956009223CB07D20071A718 /* AppDelegate.swift in Sources */,
 				195600A923CB08460071A718 /* AfterDiffableDataSourceViewController.swift in Sources */,
